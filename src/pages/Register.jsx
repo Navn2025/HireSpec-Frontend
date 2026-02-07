@@ -69,9 +69,11 @@ export default function Register()
     const [error, setError]=useState('');
 
     // Reattach stream to video element when step changes (for camera steps)
-    useEffect(() => {
-        if (step>=STEPS.FACE_FRONT && step<=STEPS.FACE_RIGHT && streamRef.current && videoRef.current) {
-            videoRef.current.srcObject = streamRef.current;
+    useEffect(() =>
+    {
+        if (step>=STEPS.FACE_FRONT&&step<=STEPS.FACE_RIGHT&&streamRef.current&&videoRef.current)
+        {
+            videoRef.current.srcObject=streamRef.current;
         }
     }, [step]);
 
@@ -183,7 +185,7 @@ export default function Register()
     {
         e.preventDefault();
 
-        if (!bypassMode && images.length<3)
+        if (!bypassMode&&images.length<3)
         {
             setError('Please capture all 3 face angles');
             return;
@@ -212,7 +214,7 @@ export default function Register()
                 password,
                 confirmPassword,
                 role,
-                images: bypassMode ? [] : images
+                images: bypassMode? []:images
             });
             navigate('/login');
         } catch (err)
@@ -318,28 +320,28 @@ export default function Register()
                     </div>
 
                     {/* Process steps - only show in normal mode */}
-                    {!bypassMode && (
-                    <div className="process-steps">
-                        {[
-                            'Email verification via OTP',
-                            'Front facing scan',
-                            'Left profile capture',
-                            'Right profile capture'
-                        ].map((text, i) => (
-                            <div key={i} className="process-step">
-                                <div className="step-number">{i+1}</div>
-                                <span>{text}</span>
-                            </div>
-                        ))}
-                    </div>
+                    {!bypassMode&&(
+                        <div className="process-steps">
+                            {[
+                                'Email verification via OTP',
+                                'Front facing scan',
+                                'Left profile capture',
+                                'Right profile capture'
+                            ].map((text, i) => (
+                                <div key={i} className="process-step">
+                                    <div className="step-number">{i+1}</div>
+                                    <span>{text}</span>
+                                </div>
+                            ))}
+                        </div>
                     )}
 
-                    {bypassMode && (
-                        <div style={{ 
-                            background: '#fef3c7', 
-                            color: '#92400e', 
-                            padding: '8px 12px', 
-                            borderRadius: '6px', 
+                    {bypassMode&&(
+                        <div style={{
+                            background: '#fef3c7',
+                            color: '#92400e',
+                            padding: '8px 12px',
+                            borderRadius: '6px',
                             fontSize: '12px',
                             marginBottom: '16px'
                         }}>
@@ -350,7 +352,7 @@ export default function Register()
                     <button
                         type="button"
                         className="btn-primary"
-                        onClick={() => setStep(bypassMode ? STEPS.FORM : STEPS.EMAIL)}
+                        onClick={() => setStep(bypassMode? STEPS.FORM:STEPS.EMAIL)}
                     >
                         Start Process
                     </button>
