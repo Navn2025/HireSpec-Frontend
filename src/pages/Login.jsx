@@ -28,7 +28,7 @@ export default function Login() {
     const [loading, setLoading] = useState(false);
     const [scanning, setScanning] = useState(false);
     const navigate = useNavigate();
-    const { login, faceLogin, getDashboardRoute } = useAuth();
+    const { login, faceLogin, getDashboardRoute, bypassMode } = useAuth();
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
     const streamRef = useRef(null);
@@ -134,9 +134,22 @@ export default function Login() {
                 <div className="auth-header">
                     <h1>Identity Hub</h1>
                     <p>Secure biometric authentication</p>
+                    {bypassMode && (
+                        <div style={{ 
+                            background: '#fef3c7', 
+                            color: '#92400e', 
+                            padding: '8px 12px', 
+                            borderRadius: '6px', 
+                            fontSize: '12px',
+                            marginTop: '10px'
+                        }}>
+                            Demo Mode: Use any username/password. Type "admin" for admin role, "hr" for HR role.
+                        </div>
+                    )}
                 </div>
 
-                {/* Auth Method Toggle */}
+                {/* Auth Method Toggle - Hide biometric in bypass mode */}
+                {!bypassMode && (
                 <div className="method-toggle">
                     <button
                         type="button"
@@ -155,6 +168,7 @@ export default function Login() {
                         <span>Biometric</span>
                     </button>
                 </div>
+                )}
 
                 {error && <div className="error-message">{error}</div>}
 

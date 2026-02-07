@@ -43,7 +43,7 @@ const ROLE_OPTIONS=[
 export default function Register()
 {
     const navigate=useNavigate();
-    const {register, sendOtp, verifyOtp}=useAuth();
+    const {register, sendOtp, verifyOtp, bypassMode}=useAuth();
 
     // Step management
     const [step, setStep]=useState(STEPS.INFO);
@@ -183,7 +183,7 @@ export default function Register()
     {
         e.preventDefault();
 
-        if (images.length<3)
+        if (!bypassMode && images.length<3)
         {
             setError('Please capture all 3 face angles');
             return;
@@ -212,7 +212,7 @@ export default function Register()
                 password,
                 confirmPassword,
                 role,
-                images
+                images: bypassMode ? [] : images
             });
             navigate('/login');
         } catch (err)
@@ -317,7 +317,8 @@ export default function Register()
                         </div>
                     </div>
 
-                    {/* Process steps */}
+                    {/* Process steps - only show in normal mode */}
+                    {!bypassMode && (
                     <div className="process-steps">
                         {[
                             'Email verification via OTP',
@@ -331,11 +332,25 @@ export default function Register()
                             </div>
                         ))}
                     </div>
+                    )}
+
+                    {bypassMode && (
+                        <div style={{ 
+                            background: '#fef3c7', 
+                            color: '#92400e', 
+                            padding: '8px 12px', 
+                            borderRadius: '6px', 
+                            fontSize: '12px',
+                            marginBottom: '16px'
+                        }}>
+                            Demo Mode: Face capture and OTP verification are skipped.
+                        </div>
+                    )}
 
                     <button
                         type="button"
                         className="btn-primary"
-                        onClick={() => setStep(STEPS.EMAIL)}
+                        onClick={() => setStep(bypassMode ? STEPS.FORM : STEPS.EMAIL)}
                     >
                         Start Process
                     </button>

@@ -141,7 +141,7 @@ function AxiomChat()
         setInputMessage('');
     };
 
-    const handleKeyPress=(e) =>
+    const handleKeyDown=(e) =>
     {
         if (e.key==='Enter'&&!e.shiftKey)
         {
@@ -275,10 +275,11 @@ function AxiomChat()
                                 <textarea
                                     value={inputMessage}
                                     onChange={(e) => setInputMessage(e.target.value)}
-                                    onKeyPress={handleKeyPress}
+                                    onKeyDown={handleKeyDown}
                                     placeholder="Type your message..."
                                     rows="1"
                                     disabled={loading}
+                                    autoFocus
                                 />
                                 <button
                                     onClick={sendMessage}
