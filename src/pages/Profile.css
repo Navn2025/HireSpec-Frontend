@@ -1,0 +1,790 @@
+.profile-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
+  padding: 2rem;
+  color: #ffffff;
+}
+
+/* Auth Required */
+.auth-required {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  text-align: center;
+}
+
+.auth-required h2 {
+  margin-bottom: 1rem;
+}
+
+.auth-required p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+}
+
+.auth-required button {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #737373, #d4d4d4);
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Loading */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #d4d4d4;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Profile Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #a3a3a3;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-avatar .avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #737373, #d4d4d4);
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-info h1 {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.profile-info .username {
+  color: #d4d4d4;
+  margin-bottom: 0.5rem;
+}
+
+.profile-info .bio {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.75rem;
+}
+
+.profile-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.profile-links a {
+  color: #a3a3a3;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.profile-links a:hover {
+  color: #d4d4d4;
+}
+
+.profile-stats-quick {
+  display: flex;
+  gap: 2rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+}
+
+.stat-item .stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d4d4d4;
+}
+
+.stat-item .stat-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Tabs */
+.profile-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.profile-tabs button {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile-tabs button:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.profile-tabs button.active {
+  background: linear-gradient(135deg, #737373, #d4d4d4);
+  color: #ffffff;
+}
+
+/* Tab Content */
+.tab-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Overview Tab */
+.performance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.performance-card {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.performance-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.performance-card .perf-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #d4d4d4;
+  margin-bottom: 0.5rem;
+}
+
+.performance-card .perf-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.recent-activity {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.recent-activity h3 {
+  margin-bottom: 1.5rem;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.activity-icon {
+  font-size: 1.5rem;
+}
+
+.activity-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-title {
+  font-weight: 500;
+}
+
+.activity-date {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.activity-score {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.no-activity {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 2rem;
+}
+
+/* Analysis Tab */
+.analysis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.analysis-header h2 {
+  font-size: 1.5rem;
+}
+
+.refresh-btn {
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.refresh-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.refresh-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.no-analysis {
+  text-align: center;
+  padding: 4rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+}
+
+.no-analysis button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #737373, #d4d4d4);
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.assessment-card {
+  padding: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(163, 163, 163, 0.1),
+    rgba(212, 212, 212, 0.1)
+  );
+  border: 1px solid rgba(163, 163, 163, 0.3);
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.assessment-card h3 {
+  margin-bottom: 1rem;
+  color: #d4d4d4;
+}
+
+.assessment-card p {
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Skill Radar */
+.skill-radar-section {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.skill-radar-section h3 {
+  margin-bottom: 1.5rem;
+}
+
+.radar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.radar-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.radar-label {
+  width: 140px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.radar-bar {
+  flex: 1;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.radar-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.8s ease;
+}
+
+.radar-value {
+  width: 40px;
+  text-align: right;
+  font-weight: 600;
+}
+
+/* Strengths & Weaknesses */
+.sw-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.strengths-card,
+.weaknesses-card {
+  padding: 1.5rem;
+  border-radius: 16px;
+}
+
+.strengths-card {
+  background: rgba(212, 212, 212, 0.1);
+  border: 1px solid rgba(212, 212, 212, 0.3);
+}
+
+.weaknesses-card {
+  background: rgba(115, 115, 115, 0.1);
+  border: 1px solid rgba(115, 115, 115, 0.3);
+}
+
+.strengths-card h3 {
+  color: #d4d4d4;
+  margin-bottom: 1rem;
+}
+
+.weaknesses-card h3 {
+  color: #737373;
+  margin-bottom: 1rem;
+}
+
+.strengths-card ul,
+.weaknesses-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.strengths-card li,
+.weaknesses-card li {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+}
+
+.sw-skill {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.sw-confidence {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.sw-evidence {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0.5rem;
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.suggestion-tag {
+  padding: 0.3rem 0.6rem;
+  background: rgba(212, 212, 212, 0.1);
+  border: 1px solid rgba(212, 212, 212, 0.3);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: #d4d4d4;
+}
+
+/* Detailed Analysis */
+.detailed-analysis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.analysis-section {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+}
+
+.analysis-section h4 {
+  margin-bottom: 0.75rem;
+  color: #d4d4d4;
+}
+
+.analysis-section p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Recommendations */
+.recommendations {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.recommendations h3 {
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
+.recommendations h3:first-child {
+  margin-top: 0;
+}
+
+.topic-tags,
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.topic-tag {
+  padding: 0.5rem 1rem;
+  background: rgba(163, 163, 163, 0.2);
+  border: 1px solid rgba(163, 163, 163, 0.3);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #a3a3a3;
+}
+
+.job-tag {
+  padding: 0.5rem 1rem;
+  background: rgba(212, 212, 212, 0.1);
+  border: 1px solid rgba(212, 212, 212, 0.3);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #d4d4d4;
+}
+
+.improvement-plan {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.improvement-plan p {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Skills Tab */
+.skills-tab h2 {
+  margin-bottom: 1.5rem;
+}
+
+.no-skills {
+  text-align: center;
+  padding: 4rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.skill-card {
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.skill-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.verified-badge {
+    background: #d4d4d4;
+  color: #ffffff;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+
+.proficiency-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+
+.skill-score {
+  font-size: 0.85rem;
+    color: #d4d4d4;
+
+.skill-category {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: capitalize;
+}
+
+/* Applications Tab */
+.applications-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.applications-header button {
+  padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #737373, #d4d4d4);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.no-applications {
+  text-align: center;
+  padding: 4rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+}
+
+.no-applications button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #737373, #d4d4d4);
+  cursor: pointer;
+}
+
+.applications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.application-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.app-company {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.app-company img,
+.app-company .logo-placeholder {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.app-company .logo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    background: linear-gradient(135deg, #737373, #d4d4d4);
+.app-company h4 {
+  margin-bottom: 0.25rem;
+}
+
+.app-company span {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.app-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.status-badge {
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-applied {
+  background: rgba(229, 229, 229, 0.2);
+  color: #e5e5e5;
+}
+.status-screening {
+  background: rgba(163, 163, 163, 0.2);
+  color: #a3a3a3;
+}
+.status-interview_scheduled {
+  background: rgba(163, 163, 163, 0.2);
+  color: #a3a3a3;
+}
+.status-assessment_sent {
+  background: rgba(212, 212, 212, 0.2);
+  color: #d4d4d4;
+}
+.status-rejected {
+  background: rgba(115, 115, 115, 0.2);
+  color: #737373;
+}
+.status-accepted {
+  background: rgba(212, 212, 212, 0.2);
+  color: #d4d4d4;
+}
+.status-withdrawn {
+  background: rgba(156, 163, 175, 0.2);
+  color: #9ca3af;
+}
+
+.app-date {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.match-score {
+  font-size: 0.9rem;
+    color: #d4d4d4;
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-stats-quick {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .profile-tabs {
+    flex-wrap: wrap;
+  }
+
+  .sw-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .application-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .app-meta {
+    align-items: flex-start;
+    width: 100%;
+  }
+}

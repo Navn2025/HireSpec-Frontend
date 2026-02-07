@@ -1,0 +1,453 @@
+.leaderboard-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
+  padding: 2rem;
+  color: #ffffff;
+}
+
+.leaderboard-header {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.leaderboard-header h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #e5e5e5, #a3a3a3, #737373);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.leaderboard-header p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+}
+
+/* User Rank Section */
+.user-rank-section {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  flex-wrap: wrap;
+}
+
+.rank-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  min-width: 200px;
+}
+
+.rank-card.your-rank {
+  background: linear-gradient(
+    135deg,
+    rgba(163, 163, 163, 0.2),
+    rgba(212, 212, 212, 0.2)
+  );
+  border-color: rgba(163, 163, 163, 0.3);
+}
+
+.rank-icon {
+  font-size: 2rem;
+}
+
+.rank-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.rank-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.rank-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d4d4d4;
+}
+
+/* Filters */
+.leaderboard-filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+}
+
+.category-tabs,
+.timeframe-tabs {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem;
+  border-radius: 12px;
+}
+
+.category-tabs button,
+.timeframe-tabs button {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-tabs button:hover,
+.timeframe-tabs button:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.category-tabs button.active,
+.timeframe-tabs button.active {
+  background: linear-gradient(135deg, #737373, #d4d4d4);
+  color: #ffffff;
+}
+
+/* Leaderboard Table */
+.leaderboard-table-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leaderboard-table th {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.leaderboard-table td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.leaderboard-table tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.leaderboard-table tr.gold {
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.1), transparent);
+}
+
+.leaderboard-table tr.silver {
+  background: linear-gradient(90deg, rgba(192, 192, 192, 0.1), transparent);
+}
+
+.leaderboard-table tr.bronze {
+  background: linear-gradient(90deg, rgba(205, 127, 50, 0.1), transparent);
+}
+
+.leaderboard-table tr.current-user {
+  background: linear-gradient(
+    90deg,
+    rgba(163, 163, 163, 0.2),
+    rgba(212, 212, 212, 0.1)
+  );
+  border: 1px solid rgba(163, 163, 163, 0.3);
+}
+
+/* Rank Cell */
+.rank-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rank-emoji {
+  font-size: 1.5rem;
+}
+
+.rank-number {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* User Cell */
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #737373, #d4d4d4);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.you-badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  background: #a3a3a3;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.user-handle {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Score Cell */
+.score-cell .score-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #d4d4d4;
+}
+
+/* Activities Cell */
+.activities-cell {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Avg Cell */
+.avg-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.avg-bar-container {
+  width: 80px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.avg-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #a3a3a3, #d4d4d4);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+/* Streak Cell */
+.streak-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.6rem;
+  background: rgba(255, 107, 0, 0.2);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #ff6b00;
+}
+
+/* Badges Cell */
+.badges-cell {
+  min-width: 100px;
+}
+
+.badges-list {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.badge-icon {
+  font-size: 1.2rem;
+  cursor: help;
+}
+
+/* Loading & Empty States */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #d4d4d4;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.no-data {
+  text-align: center;
+  padding: 4rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.pagination button {
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Ranking Info Section */
+.ranking-info {
+  max-width: 1200px;
+  margin: 3rem auto 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ranking-info h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.info-card {
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.info-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.info-card h4 {
+  margin-bottom: 0.5rem;
+  color: #d4d4d4;
+}
+
+.info-card p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .user-rank-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .rank-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .category-tabs,
+  .timeframe-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .leaderboard-table {
+    font-size: 0.85rem;
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .avg-bar-container {
+    width: 50px;
+  }
+}

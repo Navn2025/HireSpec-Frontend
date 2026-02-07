@@ -1,0 +1,100 @@
+.live-timer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timer-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Fira Code", "JetBrains Mono", monospace;
+}
+
+.timer-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  min-width: 80px;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.timer-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: white;
+}
+
+.timer-btn.start {
+  background: #4caf50;
+}
+
+.timer-btn.start:hover {
+  background: #45a049;
+}
+
+.timer-btn.pause {
+  background: #ffc107;
+  color: #000;
+}
+
+.timer-btn.pause:hover {
+  background: #e6ac00;
+}
+
+.timer-btn.reset {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.timer-btn.reset:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.timer-status {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.timer-status.running {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+}
+
+.timer-status.paused {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .live-timer {
+    padding: 0.5rem;
+  }
+
+  .timer-value {
+    font-size: 1rem;
+  }
+
+  .timer-controls {
+    display: none;
+  }
+}
